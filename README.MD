@@ -16,3 +16,7 @@ If you use the same code in a service such as automatic answering , acceptCall()
 1. start a empty small(1px*1px) activity with no content in it;
 2. call the  acceptCall() after this activity started;
 3. finish this activity when phone state changes.
+
+
+
+Get some introduction from [Android通过程序接听或者挂断电话](http://www.jianshu.com/p/ab88284384e9).
