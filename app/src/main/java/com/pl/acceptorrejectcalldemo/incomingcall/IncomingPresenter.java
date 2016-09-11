@@ -65,7 +65,7 @@ public class IncomingPresenter implements IncomingContract.Presenter{
 
 
     private void updateWindowFlags() {
-
+        //通过设置windowFlag，可以在锁屏的时候直接显示出界面，具体效果试一下就知道了
         keyguardManager = (KeyguardManager)view.getActivity().getSystemService(Context.KEYGUARD_SERVICE);
         audioManager = (AudioManager) view.getActivity().getSystemService(Context.AUDIO_SERVICE);
         if (keyguardManager.inKeyguardRestrictedInputMode()) {
@@ -94,7 +94,9 @@ public class IncomingPresenter implements IncomingContract.Presenter{
             acceptCall_4_1();
         }
     }
+
     public void acceptCall_4_1() {
+        //模拟无线耳机的按键来接听电话
         // for HTC devices we need to broadcast a connected headset
         boolean broadcastConnected = MANUFACTURER_HTC.equalsIgnoreCase(Build.MANUFACTURER)
                 && !audioManager.isWiredHeadsetOn();
@@ -157,6 +159,7 @@ public class IncomingPresenter implements IncomingContract.Presenter{
         @Override
         public void onReceive(Context context, Intent intent) {
             intent.getAction();
+            //无论接听还是挂断，都应该关闭界面
             view.getActivity().finish();
         }
     }
